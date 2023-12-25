@@ -1,4 +1,4 @@
-# Trip chain optimization for vehicle sharing company: Facing Reserved order and Real time order
+<img width="716" alt="image" src="https://github.com/Furmomo/ORA-project-vehicle-sharing/assets/147473906/82379b23-ab22-477a-91a3-40d15e65ed23"># Trip chain optimization for vehicle sharing company: Facing Reserved order and Real time order
 
 ## Table of Contents
 - [Background and Problem Statement](#background-and-problem-statement)
@@ -46,7 +46,16 @@ Our input data comes from received orders, providing information about pickup lo
 - $t_{i^+}$: end time for trip $i\in I$
 - $o$: source node
 - $d$: sink node
-- $A_r = {(i,j)}$
-- $A_1 = {(i^-,i^+)|\forall i \in I}$: $A_1$ is a set contains all sevice link $(i^-,i^+)$
-- $A_2 = {(i^+,j^-)|\forall (i,j) \in I}$: $A_2$ is a set contains all sevice link $(i^-,i^+)$
-- 
+- $A_r = \lbrace (i,j)| i,j \in I, i \  can \ reach \ in \ j\rbrace$: $A_r$ is a set contains all reachable link
+- Service link $(i^-,i^+)$: Each demand $i$ is served by service link
+- Relocation link $(i^+,j^-)$: after deliver at delivery node $i^+$, AV needs to be relocated to pickup node $j^-$ for next order
+- $A_1 = \lbrace (i^-,i^+)|\forall i \in I \rbrace$: $A_1$ is a set that contains all sevice link $(i^-,i^+)$
+- $A_2 = \lbrace (i^+,j^-)|\forall (i,j) \in I \rbrace$: $A_2$ is a set that contains all reachable relocation link $(i^+,i^-)$
+- $A= A_1 \cup A_2 \cup \lbrace (o,i^-) \rbrace _{i\in I} \cup \lbrace (i^+,d) \rbrace _{i\in I} \cup \lbrace (o,d) \rbrace $, A is a set that conatins all possible links in our relocation problem
+
+#### Parameter
+
+- $f$: Fleet cost per vehicle includes expenses related to AV maintenance and refueling
+- $d_i$: The dispatch cost refers to the expense associated with initially dispatch an AV to $i^-$ or collect an AV at the end from $i^+$
+- $d_{i,j}$: 
+ 

@@ -5,9 +5,9 @@
 - [Methodology](#methodology)
   - [Phase one model](#phase-one-model)
   - [Phase two greedy algorithm](#phase-two-greedy-algorithm)
-- [Example and Applications](#example-and-applications)
-- [Comments](#comments)
-- [Started](#started)
+- [Example](#example)
+- [Numerical Study](#numerical_study)
+- [Conclusion](#conclusion)
 - [Reference](#reference)
 
 ## Background and Problem Statement
@@ -82,10 +82,11 @@ Our objective is minimize the total cost of our system, and the objective functi
 
 #### Constraint
 
-- Constraint 1: $t_{j^-}-t_{i^+}\ge$ relocation_time $(i,j)$
-- Constraint 2: $\sum_{j}y_{ij}\leq \sum_{j}m_{ij}$
-- Constraint 3: $\sum_{j\in I\backslash \lbrace o \rbrace} y_{ij}=F$, $i=o$
-- Constraint 4: $\sum_{j\in I\backslash \lbrace d \rbrace} y_{ji}=F$, $i=d$
+1. $t_{j^-}-t_{i^+}\ge$ relocation_time $(i,j)$
+2. $\sum_{j}y_{ij}\leq \sum_{j}m_{ij}$
+3. $\sum_{j\in I\backslash \lbrace o \rbrace} y_{ij}=F$, $i=o$
+4. $\sum_{j\in I\backslash \lbrace d \rbrace} y_{ji}=F$, $i=d$
+
 - In constraint 1, we want to let our AV arrive before trip's pickup time given that the relocation time is deterministic. Therefore, our relocation time in $(i^+,j^-)$ must less than the delivery time of order j minus pickup time of order i
 - In constraint 2, we constraint link capacity. For each link, we only allow one AV use it because we only need to serve each demand once.
 - Constraint 3 and constraint are balance constraint, we use these two constraints to make sure that number of AVs we collect at the end is same as number of AVs we dispatch at the beginning
@@ -94,4 +95,20 @@ After solving above model, we can optimally determined number of AV we should di
 
 ### Phase two greedy algorithm
 
-- In phase two, since we are handling 
+- In phase two, as we deal with real-time orders, efficiency becomes crucial. Therefore, we employ a greedy algorithm to address the problem. While this approach may not yield an optimal trip chain, it allows us to quickly obtain a suboptimal trip chain.
+- Our greedy algorithm is straightforward: we identify all feasible solutions based on the current trip chain and then insert the new order into the trip chain in a way that minimally increases the cost
+- In the later empirical results, we will demonstrate the efficiency of our algorithm and illustrate that the optimality gap between our algorithm and the optimization is not substantial
+
+## Example
+
+In this section, we will present a simple example to facilitate a better understanding of our entire problem and methodology
+
+- In our example, we have five reserved orders, and the information is presented in the following figure. We then utilize the information from these five orders and execute the phase one model, resulting in the following optimal trip chains:
+  - Car 1’s trip chain: start --- order 2 --- order 5 --- order 1 --- end.
+  - Car 2’s trip chain: start --- order 3 --- order 4 --- end
+ 
+- 
+
+
+
+

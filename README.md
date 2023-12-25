@@ -1,4 +1,3 @@
-<img width="662" alt="image" src="https://github.com/Furmomo/ORA-project-vehicle-sharing/assets/147473906/1bf7b1cf-dd93-49d9-98cf-8cedd679691a"># Trip chain optimization for vehicle sharing company: Facing Reserved order and Real time order
 
 ## Table of Contents
 - [Background and Problem Statement](#background-and-problem-statement)

@@ -104,10 +104,13 @@ After solving above model, we can optimally determined number of AV we should di
 In this section, we will present a simple example to facilitate a better understanding of our entire problem and methodology
 
 - In our example, we have five reserved orders, and the information is presented in the following figure. We then utilize the information from these five orders and execute the phase one model, resulting in the following optimal trip chains:
-  - Car 1’s trip chain: start --- order 2 --- order 5 --- order 1 --- end.
+  - Car 1’s trip chain: start --- order 2 --- order 5 --- order 1 --- end
   - Car 2’s trip chain: start --- order 3 --- order 4 --- end
  
-- 
+- Subsequently, in real-time, we receive order 6, and we identify two possible ways to insert this order:
+  - Car 1’s trip chain: start --- order 2 --- order 6 --- order 5 --- order 1 --- end
+  - Car 2’s trip chain: start --- order 3 --- order 6 --- order 4 --- end
+- Finanly, we will choose the trip chain that minimally increases the cost
 
 
 

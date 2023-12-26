@@ -11,7 +11,7 @@
 - [Reference](#reference)
 
 ## Background and Problem Statement
-In this project, we aim to establish an scheduling system for an autonomous vehicle(refered as AV) sharing company. 
+In this project, our objective is to establish a scheduling system for an autonomous vehicle (referred as AV) sharing company. The entire process is illustrated in the figure below.
 The system will receive orders from customers. And in each order, we will receive information regarding the pickup location, delivery location, pickup time and delivery time.
 Based on these information, our system will optimally determine the number of AVs we should dispatched and the trip chain for each AV.
 
